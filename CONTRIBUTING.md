@@ -54,3 +54,19 @@ For it to work, you need to declare two secrets in the GitHub Action:
 
 - `APIKEY` - To run autotests on the JS API https://mappable.world/docs/js-api/quickstart.html#get-api-key
 - `NPM_TOKEN` - To publish your package to npm
+
+## Development loader
+
+```js
+// Add loader at the beginning of the loader queue
+mappable.import.loaders.unshift(async (pkg) => {
+    // Process only this package
+    if (!pkg.includes('@mappable-world/mappable-web-mercator-projection')) return;
+
+    // Load script directly. You can use another CDN
+    await mappable.import.script(`/dist/index.js`);
+
+    // Return result object
+    return window['@mappable-world/mappable-web-mercator-projection'];
+});
+```

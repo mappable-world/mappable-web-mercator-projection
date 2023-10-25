@@ -43,7 +43,7 @@ You can use some CDN with `mappable.import` JS API module loading handler on you
 const {WebMercator} = await mappable.import('@mappable-world/mappable-web-mercator-projection');
 ```
 
-**_NOTE:_**s
+**_NOTE:_**
 By default `mappable.import` can load self modules, scripts or style.
 To make the code above work, you should add a loader:
 
