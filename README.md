@@ -1,11 +1,11 @@
-# @mappable-world/mappable-spherical-mercator-projection package
+# @mappable-world/mappable-web-mercator-projection package
 
 ---
 
 Mappable JS API package
 
-[![npm version](https://badge.fury.io/js/@mappable-world%2Fmappable-spherical-mercator-projection.svg)](https://badge.fury.io/js/@mappable-world%2Fmappable-spherical-mercator-projection)
-[![npm](https://img.shields.io/npm/dm/@mappable-world/mappable-spherical-mercator-projection.svg)](https://www.npmjs.com/package/@mappable-world/mappable-spherical-mercator-projection)
+[![npm version](https://badge.fury.io/js/@mappable-world%2Fmappable-web-mercator-projection.svg)](https://badge.fury.io/js/@mappable-world%2Fmappable-web-mercator-projection)
+[![npm](https://img.shields.io/npm/dm/@mappable-world/mappable-web-mercator-projection.svg)](https://www.npmjs.com/package/@mappable-world/mappable-web-mercator-projection)
 [![Build Status](https://github.com/mappable-world/mappable-cartesian-projection/workflows/Run%20tests/badge.svg)](https://github.com/mappable-world/mappable-cartesian-projection/actions/workflows/tests.yml)
 
 ## How use
@@ -20,7 +20,7 @@ to use Mappable JS Module you need to add your module loading handler to JS API
 
 ```js
 mappable.import.loaders.unshift(async (pkg) => {
-  if (!pkg.includes('@mappable-world/mappable-spherical-mercator-projection')) {
+  if (!pkg.includes('@mappable-world/mappable-web-mercator-projection')) {
     return;
   }
 
@@ -38,5 +38,5 @@ mappable.import.loaders.unshift(async (pkg) => {
 and in your final code just use `mappable.import`
 
 ```js
-const pkg = await mappable.import('@mappable-world/mappable-spherical-mercator-projection')
+const pkg = await mappable.import('@mappable-world/mappable-web-mercator-projection')
 ```

@@ -1,5 +1,5 @@
 mappable.import.loaders.unshift(async (pkg) => {
-    if (!pkg.includes('@mappable-world/mappable-spherical-mercator-projection')) {
+    if (!pkg.includes('@mappable-world/mappable-web-mercator-projection')) {
         return;
     }
 

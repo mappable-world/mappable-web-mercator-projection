@@ -1,1 +1,1 @@
-export * from './spherical-mercator';
+export * from './web-mercator';

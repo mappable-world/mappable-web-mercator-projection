@@ -4,18 +4,18 @@ import {cycleRestrict, restrict, DEG_TO_RAD, RAD_TO_DEG} from './utils'
 /**
  * @class Mercator projection onto a sphere.
  * Used by many mapping services, in particular OpenStreetMap.
- * @name projection.sphericalMercator
+ * @name projection.webMercator
  * @augments Projection
  * @static
  * @example
  * ```js
  * const {MMap, MMapTileDataSource, MMapLayer} = mappable;
- * const {SphericalMercator} = await mappable.import('@mappable-world/mappable-spherical-mercator-projection');
+ * const {WebMercator} = await mappable.import('@mappable-world/mappable-web-mercator-projection');
  *
- * // Create a map in the spherical Mercator projection
+ * // Create a map in the web Mercator projection
  * const map = new MMap(document.getElementById('map_id'), {
  *     // ...
- *     projection: new SphericalMercator()
+ *     projection: new WebMercator()
  * });
  *
  * // Add osm tiles
@@ -38,7 +38,7 @@ import {cycleRestrict, restrict, DEG_TO_RAD, RAD_TO_DEG} from './utils'
  * ```
  */
 
-export class SphericalMercator implements Projection {
+export class WebMercator implements Projection {
     private _maxLatitudeRad = Math.atan(Math.sinh(Math.PI));
 
     toWorldCoordinates(coords: LngLat): WorldCoordinates {

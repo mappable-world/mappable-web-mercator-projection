@@ -1,11 +1,11 @@
 import type {LngLat} from '@mappable-world/mappable-types';
 import * as turf from '@turf/projection';
 import {restrict, cycleRestrict, RAD_TO_DEG} from './utils';
-import {SphericalMercator} from './spherical-mercator';
+import {WebMercator} from './web-mercator';
 
-describe('sphericalMercator transformations', () => {
+describe('webMercator transformations', () => {
     const WORLD_TO_METRIC = 6378137.0 * Math.PI;
-    const sphericalMercator = new SphericalMercator();
+    const webMercator = new WebMercator();
 
     const maxLat = Math.atan(Math.sinh(Math.PI)) * RAD_TO_DEG;
     const lngWorld = [
@@ -40,7 +40,7 @@ describe('sphericalMercator transformations', () => {
     it('check toWorldCoordinates', () => {
         lngWorld.map(([lng, worldX]) => {
             latWorld.map(([lat, worldY]) => {
-                const world = sphericalMercator.toWorldCoordinates([lng, lat]);
+                const world = webMercator.toWorldCoordinates([lng, lat]);
                 expect(world.x).toBeCloseTo(worldX, 9);
                 expect(world.y).toBeCloseTo(worldY, 9);
 
@@ -54,7 +54,7 @@ describe('sphericalMercator transformations', () => {
     it('check fromWorldCoordinates', () => {
         lngWorld.map(([lng, worldX]) => {
             latWorld.map(([lat, worldY]) => {
-                const lngLat = sphericalMercator.fromWorldCoordinates({x: worldX, y: worldY});
+                const lngLat = webMercator.fromWorldCoordinates({x: worldX, y: worldY});
                 expect(lngLat[0]).toBeCloseTo(cycleRestrict(lng, -180, 180), 9);
                 expect(lngLat[1]).toBeCloseTo(restrict(lat, -maxLat, maxLat), 9);
 
@@ -70,8 +70,8 @@ describe('sphericalMercator transformations', () => {
             for (let lat = -100; lat < 100; lat++) {
                 const lngLat: LngLat = [cycleRestrict(lng, -180, 180), restrict(lat, -maxLat, maxLat)];
 
-                const world = sphericalMercator.toWorldCoordinates(lngLat);
-                const lngLatAfter = sphericalMercator.fromWorldCoordinates(world);
+                const world = webMercator.toWorldCoordinates(lngLat);
+                const lngLatAfter = webMercator.fromWorldCoordinates(world);
                 expect(lngLat[0]).toBeCloseTo(lngLatAfter[0], 9);
                 expect(lngLat[1]).toBeCloseTo(lngLatAfter[1], 9);
             }

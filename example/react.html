@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>React example @mappable-world/mappable-spherical-mercator-projection</title>
+        <title>React example @mappable-world/mappable-web-mercator-projection</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
@@ -25,8 +25,8 @@
                 const {MMapZoomControl} = reactify.module(await mappable.import('@mappable-world/mappable-controls@0.0.1'));
                 const {MMapDefaultMarker} = reactify.module(await mappable.import('@mappable-world/mappable-markers@0.0.1'));
 
-                const {SphericalMercator} = await mappable.import('@mappable-world/mappable-spherical-mercator-projection');
-                const projection = new SphericalMercator();
+                const {WebMercator} = await mappable.import('@mappable-world/mappable-web-mercator-projection');
+                const projection = new WebMercator();
 
                 ReactDOM.render(
                     <React.StrictMode>
