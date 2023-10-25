@@ -7,7 +7,7 @@
         <script src="https://js.api.mappable.world/3.0/?apikey=%APIKEY%&lang=en_US"></script>
         <script src="common.js"></script>
         <script>
-            window.map = null;
+            let map = null;
 
             main();
             async function main() {
@@ -20,7 +20,7 @@
                 const {WebMercator} = await mappable.import('@mappable-world/mappable-web-mercator-projection');
                 const projection = new WebMercator();
 
-                const map = new MMap(document.getElementById('app'), {
+                map = new MMap(document.getElementById('app'), {
                     location: LOCATION,
                     projection: projection
                 });
