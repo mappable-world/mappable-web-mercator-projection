@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1-beta.2",
+    "version": "0.0.1",
     "name": "@mappable-world/mappable-web-mercator-projection",
     "description": "Mappable Maps JS API 3.0 example @mappable-world/mappable-web-mercator-projection",
     "types": "./dist/types/index.d.ts",
