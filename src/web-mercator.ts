@@ -41,6 +41,8 @@ import {cycleRestrict, restrict, DEG_TO_RAD, RAD_TO_DEG} from './utils'
 export class WebMercator implements Projection {
     private _maxLatitudeRad = Math.atan(Math.sinh(Math.PI));
 
+    type: 'EPSG:3857';
+
     toWorldCoordinates(coords: LngLat): WorldCoordinates {
         return {
             x: this._longitudeToWorldX(coords[0]),
@@ -66,7 +68,7 @@ export class WebMercator implements Projection {
         const latitude = restrict(lat * DEG_TO_RAD, -this._maxLatitudeRad, this._maxLatitudeRad);
         const tanTemp = Math.tan(Math.PI / 4 + latitude / 2);
 
-        return Math.log(tanTemp) / Math.PI;
+        return restrict(Math.log(tanTemp) / Math.PI, -1, 1);
     }
 
     private _worldYToLatitude(y: number): number {
